@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html ng-app="todo">
+<head>
+    <title></title>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+    }
+    </style>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"
+        type="text/javascript"></script>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"
+        type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script type="text/javascript"></script>
+    
+    <div ng-controller="LogoutController as logoutCtrl">
+        <button align="right" ng-click="logoutCtrl.logout()">Log Out</button>
+</head>
+<body>
+    
+    
+    
+    
+<div class="container" ng-app="todo">
+    <div class="row" ng-controller="TabController">
+      <div class="col-md-2">
+          <ul class="nav nav-pills nav-stacked">
+          <li ng-class="{ active: isSet(1) }">
+              <a href ng-click="setTab(1)">Today</a>
+          </li>
+         <li ng-class="{ active: isSet(2) }">
+             <a href ng-click="setTab(2)">This Week</a>
+         </li>
+          <li ng-class="{ active: isSet(3) }">
+             <a href ng-click="setTab(3)">All</a>
+          </li>
+         </ul>
+     </div>
+ <div class="col-md-8">
+    <div class="jumbotron">
+         <div ng-show="isSet(1)">
+               <h1>Tasks scheduled for Today</h1>
+              <p>Welcome to the website!</p>    
+            <div ng-controller="ScheduleController as schedCtrl">
+            <table style="width:75%">
+                   <tr style="color:blue;">
+                         <th>Task</th>
+                         <th>Time</th>
+                         <th></th>
+                         <th>
+                            <button onClick="location.href ='/static/newtask.html';">Create Entry</button>
+                         </th>
+                   </tr> 
+                   <tr ng-repeat="task in schedCtrl.tasks">
+                   <td> {{task.task}} </td> 
+                   <td> {{task.scheduled_time}} </td>
+                   <td> 
+                       <div ng-controller="ScheduleEditController as scheditCtrl">
+                       <button ng-click="scheditCtrl.getSched(task)">Edit Entry</button>
+                       <div ng-controller="ScheduleDeleteController as schedDelCtrl"> 
+                       <button ng-click="schedDelCtrl.delSched(task)">Delete Entry</button>
+                   </td>
+                   <td></td>
+                   </tr>
+            </table>
+            </div>
+        </div>
+        
+        
+        <div ng-show="isSet(2)">
+          <h1>Tasks for this Week</h1>
+           <p>Profile information</p>
+                            
+            <div ng-controller="ScheduleController as schedCtrl">
+            <table style="width:75%">
+                   <tr style="color:blue;">
+                         <th>Task</th>
+                         <th>Time</th>
+                         <th></th>
+                         <th>
+                            <button onClick="location.href ='/static/newtask.html';">Create Entry</button>
+                         </th>
+                   </tr> 
+                   <tr ng-repeat="task in schedCtrl.tasksToday">
+                   <td> {{task.task}} </td> 
+                   <td> {{task.scheduled_time}} </td>
+                   <td> 
+                       <div ng-controller="ScheduleEditController as scheditCtrl">
+                       <button ng-click="scheditCtrl.getSched(task)">Edit Entry</button>
+                       <div ng-controller="ScheduleDeleteController as schedDelCtrl"> 
+                       <button ng-click="schedDelCtrl.delSched(task)">Delete Entry</button>
+                   </td>
+                   <td></td>
+                   </tr>
+            </table>
+            </div>
+        </div>
+        
+        
+        
+        
+        <div ng-show="isSet(3)">
+           <h1>All Tasks</h1>
+           <p> Some messages </p>
+        
+            <div ng-controller="ScheduleController as schedCtrl">
+            <table style="width:75%">
+                   <tr style="color:blue;">
+                         <th>Task</th>
+                         <th>Time</th>
+                         <th></th>
+                         <th>
+                            <button onClick="location.href ='/static/newtask.html';">Create Entry</button>
+                         </th>
+                   </tr> 
+                   <tr ng-repeat="task in schedCtrl.tasks">
+                   <td> {{task.task}} </td> 
+                   <td> {{task.scheduled_time}} </td>
+                   <td> 
+                       <div ng-controller="ScheduleEditController as scheditCtrl">
+                       <button ng-click="scheditCtrl.getSched(task)">Edit Entry</button>
+                       <div ng-controller="ScheduleDeleteController as schedDelCtrl"> 
+                       <button ng-click="schedDelCtrl.delSched(task)">Delete Entry</button>
+                   </td>
+                   <td></td>
+                   </tr>
+            </table>
+            </div>
+       
+       
+       
+       
+       </div>
+     </div>
+ </div>
+</div>    
+    
+</body>
+</html>
+
