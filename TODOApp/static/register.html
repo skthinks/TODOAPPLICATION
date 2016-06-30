@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html ng-app="todo">
+<head>
+    <title></title>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"
+        type="text/javascript"></script>
+    <script
+         src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"
+         type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script type="text/javascript"></script>
+</head>
+<body>
+     <form name="reviewForm" ng-controller="RegisterController as regCtrl"ng-submit="regCtrl.getCred(product)">
+              <!--  Review Form -->
+              <h4>Registration</h4> 
+              <fieldset class="form-group">
+               First Name : <input ng-model="regCtrl.firstName" type="text"class="form-control" title="firstName" />
+              </fieldset>
+              <fieldset class="form-group">
+               Last Name  : <input ng-model="regCtrl.lastName" type="text" class="form-control" title="lastName" />
+              </fieldset>
+              <fieldset class="form-group">
+               Email      : <input ng-model="regCtrl.email" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              </fieldset>
+              <fieldset class="form-group">
+                Password  :<input ng-model="regCtrl.password" type="password" class="form-control" title="Password" />
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>`
+</body>
+</html>
+
